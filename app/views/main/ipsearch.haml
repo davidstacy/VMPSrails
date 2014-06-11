@@ -1,0 +1,53 @@
+
+
+.mainsearch
+  %h2
+    =params[:ip]
+    
+  %h3
+    DNS Check
+    
+  resolved to 
+  %b
+    =@dnsname  
+  %p
+    
+  %hr  
+  %h3
+    Cisco Check
+  %b
+    Arp on Cat4506a
+  %br
+  Mac address: 
+  =@foundmac
+  |
+  %a{:href=>"http://www.coffer.com/mac_find/?string=#{@foundmac}", :target=>"_new"}
+    vendor for this mac
+  %br
+  Vlan:
+  =@foundvlan
+  %p
+  %b
+    mac-address-table lookup
+  %br
+  Switch: 
+  =@switch.name
+  %br
+  Port:
+  =@port
+  |
+  %a{:href=>"/ports?switchport=#{CGI::escape(@port)}&switchid=#{@switch.id}"}
+    link
+  
+  %p
+  %hr
+  
+  %h3
+    VMPS Database Check
+  %br
+  
+  - if @host
+    hostname:
+    =link_to(@host.hostname,@host) 
+  - else
+    No record in database

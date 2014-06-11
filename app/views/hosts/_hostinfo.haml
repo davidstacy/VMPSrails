@@ -1,0 +1,8 @@
+- if @switch
+  == port: #{@port} on switch #{@switch.name} 
+  | 
+  %a{:href=>"/ports?switchport=#{CGI::escape(@port)}&switchid=#{@switch.id}"}
+    link
+
+-else
+  don't see it  

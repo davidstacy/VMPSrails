@@ -1,0 +1,16 @@
+<h1>Editing conf</h1>
+
+<% form_for(@conf) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :configtext %><br />
+    <%= f.text_area :configtext %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @conf %> |
+<%= link_to 'Back', confs_path %>

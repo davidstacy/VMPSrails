@@ -1,0 +1,11 @@
+--- 
+:backgroundrb: 
+  :ip: 0.0.0.0
+  :port: 11006
+:schedules:
+  :configsaver_worker:
+    :save_configs:
+      :trigger_args:
+        :start: <%= Time.now + 5.seconds %>
+        :end: <%= Time.now + 10.minutes %>
+        :repeat_interval: <%= 1.day %> 

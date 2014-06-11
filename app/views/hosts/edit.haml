@@ -1,0 +1,24 @@
+%h1
+  Editing 
+  =@host.hostname
+
+- form_for(@host) do |f| 
+  = f.error_messages 
+  
+  
+  = text_field(:host, :hostname, :size => 20)
+  = label(:host, :hostname)
+  %br/
+  = text_field(:host, :mac, :size => 20)
+  = label(:host, :mac)
+  %br/
+  = select(:host, :vlan, Vlan.find(:all).collect {|p| [ p.name ] })
+  
+  
+
+  %p
+    = f.submit 'Update'
+  
+
+
+= link_to 'Show', @host 

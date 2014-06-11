@@ -1,0 +1,31 @@
+
+%table.igoogle.igoogle-classic{:style=>"border-collapse: collapse;"}
+  %tr
+    %th
+      hostname
+    %th
+      mac
+    %th
+      vlan
+        
+  - @results.each do |host|
+    /- showspinner = 'Element.show("spinner-hostinfo")'
+    /- hidespinner = 'Element.hide("spinner-hostinfo")'
+    
+    /Turning off the ajax selector, but leaving the code in case I want the functionality later -DLS 5/6/9
+    /%tr{:onclick=>"#{remote_function(                                     |
+    /                  :loading => showspinner,                            |
+    /                  :complete => hidespinner,                           |
+    /                  :update => 'hostinfo',                              |
+    /                  :url => { :action => :findhost,:id=>host.id})}"}  |
+                      
+    %tr{:onclick=>"window.location='/hosts/#{host.id}'"}
+      %td 
+        = host.hostname
+      %td
+        = host.mac
+      %td
+        = host.vlan
+%p        
+#spinner-hostinfo{:style=>"display:none;float:left;"}
+  %img{:src=>"/images/ajax-loader.gif"}

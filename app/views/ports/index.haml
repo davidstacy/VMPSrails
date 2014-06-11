@@ -1,0 +1,12 @@
+%h1
+  
+.mainsearch
+  %h2
+    =link_to @switch.name, @switch
+    |
+    =@switchport  
+  .commands_tabnav
+    =tabnav :portcommands do
+      .commands_tabnav_comment
+        results
+

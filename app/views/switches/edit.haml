@@ -1,0 +1,29 @@
+.mainsearch
+  %h1
+    Editing switch
+  
+  - form_for(@switch) do |f|
+    = f.error_messages
+  
+    %p
+      = f.label :name
+      %br
+      = f.text_field :name
+    %p
+      = f.label :ip
+      %br
+      = f.text_field :ip
+    %p
+      = f.label :model
+      %br
+      = f.text_field :model
+    %p
+      = f.label :vmps
+      %br
+      = f.check_box :vmps
+    %p
+      = f.submit "Update"
+  
+  = link_to 'Show', @switch
+  |
+  = link_to 'Back', switches_path

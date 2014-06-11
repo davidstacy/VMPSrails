@@ -1,0 +1,19 @@
+
+    
+.mainsearch
+  #searchbox{:style=>"float:left;"}
+    Search:
+    = text_field_with_auto_complete :host, :mac, {}, {:indicator=>"spinner"}
+    
+  #spinner{:style=>"display:none;float:left;"}
+    %img{:src=>"/images/ajax-loader.gif"}  
+
+    %p
+#instructions
+  Search by hostname or MAC address in the format of aaaa.bbbb.cccc.  Hexadecimal of course.
+  %p
+  Type in an IP address to do a reverse lookup.
+
+#searchresults{:style=>"clear:both;"}
+  
+#hostinfo

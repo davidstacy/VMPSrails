@@ -1,0 +1,7 @@
+
+- @switch.confs.each do |conf|
+  %li
+    %b
+      revised
+      =conf.created_at
+    = Switch.diff(conf.configtext,@switch.confs.last.configtext) 

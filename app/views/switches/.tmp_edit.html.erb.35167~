@@ -1,0 +1,28 @@
+<h1>Editing switch</h1>
+
+<% form_for(@switch) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_area :name %>
+  </p>
+  <p>
+    <%= f.label :ip %><br />
+    <%= f.text_area :ip %>
+  </p>
+  <p>
+    <%= f.label :model %><br />
+    <%= f.text_area :model %>
+  </p>
+  <p>
+    <%= f.label :vmps %><br />
+    <%= f.text_field :vmps %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @switch %> |
+<%= link_to 'Back', switches_path %>

@@ -1,0 +1,21 @@
+!!!
+
+%head
+  %title
+    Main
+  =javascript_include_tag :defaults 
+  =stylesheet_link_tag "default"
+  :javascript
+    function searchfocus(){
+      $('host_mac').focus();
+    }
+    
+%body{:OnLoad=>"searchfocus()"}
+  
+  
+  .container
+    #header
+      Network/VMPS Control
+  
+    =tabnav :main do 
+      =yield

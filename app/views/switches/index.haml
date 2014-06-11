@@ -1,0 +1,36 @@
+%h1
+  
+.mainsearch  
+  %table.igoogle.igoogle-classic{:style=>"border-collapse: collapse;"}
+    %tr
+      %th
+        Name
+      %th
+        Ip
+      %th
+        Model
+      %th
+        VMPS
+    - @switches.each do |switch|
+      - id = switch.switchuid
+      %tr{:onclick=>"window.location='#{url_for(switch)}'"} 
+        %td
+          =h switch.name
+        %td
+          =h switch.ip
+        %td
+          =h switch.model
+        %td
+          =h switch.vmps
+        /%td
+        /  =link_to 'diff', showdiff_switch_path(switch.id)
+        /%td
+        /  =link_to 'Show', switch
+        /%td
+        /  =link_to 'Edit', edit_switch_path(switch.id)
+        /%td
+        /  =link_to 'Destroy', switch, :confirm => 'Are you sure?', :method => :delete
+
+    %br
+
+    /= link_to 'New switch', new_switch_path

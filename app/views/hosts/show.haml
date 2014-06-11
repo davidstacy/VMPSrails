@@ -1,0 +1,28 @@
+
+- showspinner = 'Element.show("spinner-hostinfo")'
+- hidespinner = 'Element.hide("spinner-hostinfo")'
+
+%h3
+  =@host.hostname
+%br/
+=@host.mac
+%br/
+=@host.vlan
+%p/
+= link_to 'Edit', edit_host_path(@host)
+| 
+= link_to 'Delete', @host, :confirm => 'Are you sure?', :method => :delete
+
+%p/ 
+= link_to_remote( "locate",                                     |
+                      :loading => showspinner,                            |
+                      :complete => hidespinner,                           |
+                      :update => 'ciscoresult',                              |
+                      :url => { :action => :locatehost,:id=>@host.id})  |
+
+/= link_to 'Back', hosts_path
+
+#spinner{:style=>"display:none;float:left;"}
+  %img{:src=>"/images/ajax-loader.gif"}
+
+#ciscoresult

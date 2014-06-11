@@ -1,0 +1,35 @@
+
+.mainsearch  
+  = link_to 'New host', new_host_path
+  %p/
+  
+  %table.igoogle.igoogle-classic{:style=>"border-collapse: collapse;"}
+    %tr
+      %th
+        mac
+      %th
+        name
+      %th
+        vlan
+      %th
+      %th
+      %th
+        
+    - @hosts.each do |host| 
+      %tr
+        %td
+          = host.mac
+        %td
+          = host.hostname
+        %td
+          =host.vlan
+        %td
+          = link_to 'Show', host
+        %td
+          = link_to 'Edit', edit_host_path(host)
+        %td
+          = link_to 'Destroy', host, :confirm => 'Are you sure?', :method => :delete
+  
+
+%br/
+

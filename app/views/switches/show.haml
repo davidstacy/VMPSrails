@@ -1,0 +1,17 @@
+.mainsearch
+  =h @switch.name
+  |
+  =h @switch.ip
+  |
+  =h @switch.model
+  | VMPS?: 
+  =h @switch.vmps
+  
+  | 
+  = link_to 'Edit', edit_switch_path(@switch)
+  |
+  = link_to 'Back', switches_path
+
+  
+  - tabnav :switchcommands do
+    run some cisco commands

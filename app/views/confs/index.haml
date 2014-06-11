@@ -1,0 +1,34 @@
+
+%h2
+  Configs
+
+= link_to "save current configs", saveconfig_confs_path
+  
+%p  
+%table
+  %tr
+    %th
+      created
+    %th
+      switch
+    %th
+      filename
+    %th  
+    %th
+    %th
+
+  - @confs.each do |conf|
+    %tr
+      %td
+        = conf.created_at
+      %td
+        = conf.switch.name
+      %td
+        = conf.filename  
+      %td
+        = link_to 'Show', conf
+      %td
+        = link_to 'Delete', conf, :confirm => 'Are you sure?', :method => :delete
+
+%br
+= link_to 'New conf', new_conf_path

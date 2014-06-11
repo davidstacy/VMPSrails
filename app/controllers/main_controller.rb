@@ -57,7 +57,7 @@ class MainController < ApplicationController
 
     #arp check on cisco switches
     #checking against the active or passive router is a good bet          
-    c=ciscologin("10.1.1.1")
+    c=ciscologin("ipofmainswitch")
       
     c.cmd("term length 0")    
     result = c.cmd("show arp")
